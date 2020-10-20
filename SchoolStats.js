@@ -1,6 +1,3 @@
-
-
-
 var schools = [
     {
         schoolId: "Miami",
@@ -17,10 +14,11 @@ function validSchool(){
 
     for(let i = 0; i < schools.length; i++){
         if(schoolId == schools[i].schoolId && location == schools[i].location){
-            console.log(schoolId + " is already registered")
+            alert(schoolId + " is already registered")
+            return
         }
-
     }
+    alert(schoolId + " is not registered")
 }
 
 
@@ -37,12 +35,13 @@ function registerSchool(){
 
     for(var i = 0; i < schools.length; i++){
         if(registeredSchoolId == schools[i].schoolId){
-            alert("This school is already registered")
+            alert(registeredSchoolId + " is already registered")
             return
         }
     }
     var temp = new SchoolStat(registeredSchoolId,registeredLocation,registeredDescription)
     schools.push(newSchool)
+    alert(registeredSchoolId + " has been registered!")
     console.log(schools)
 }
 
@@ -68,5 +67,6 @@ class SchoolStat{
 
 
 }
+
 
 
