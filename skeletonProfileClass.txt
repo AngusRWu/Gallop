@@ -10,6 +10,7 @@
     <input type="text" placeholder="First Name" id="firstName"><br>
     <input type="text" placeholder="Last Name" id="lastName"><br>
     <input type="text" placeholder="Password" id="password"><br>
+    <input type="text" placeholder="Email" id="email"><br>
     <button type="button" onclick="getInput()">Submit</button>
 
 	<script>
@@ -17,7 +18,8 @@
 		var profile = {
   			pn : undefined,
   			un : undefined,
-  			pw : undefined
+  			pw : undefined,
+			email : undefined
 		};
         
         // Retrieve input
@@ -26,6 +28,7 @@
         	" " + document.getElementById("lastName").value;
         	profile.un = document.getElementById("username").value;
         	profile.pw = document.getElementById("password").value;
+		profile.email = document.getElementById("email").value;
 		document.write("Account Created!");
         }
         
