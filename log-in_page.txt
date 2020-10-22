@@ -3,8 +3,6 @@
 <head>
 <style>
 h2 {text-align: center;}
-input {text-align: center;}
-button {text-align: center;}
 </style>
 </head>
 <body style=background-color:beige>
@@ -14,10 +12,20 @@ button {text-align: center;}
 
 <input type="text" placeholder="Username" id="username"><br>
 <input type="text" placeholder="Password" id="password"><br>
-<button type="button" onclick="getInput()">Log In</button><br>
+<button type="button" onclick="login()">Log In</button><br>
 <br>
 <div style=font-family:verdana>Don't have an account? </div>
 <a href="https://www.google.com/" style=font-family:verdana>Make one!</a>
+
+	<script>
+		function login() {
+        	username = document.getElementById("username").value;
+            password = document.getElementById("password").value;
+        	
+            // scan data structure (dictionary) of all profiles for matching username, check password
+            
+            alert("Incorrect Password or Username");
+	</script>
 
 </body>
 </html>
