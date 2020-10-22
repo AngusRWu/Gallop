@@ -1,0 +1,40 @@
+<!--Angus Wu
+# October 30, 2019
+#Lab 9
+-->
+<html>
+  <head>
+    <title> Index Webpage </title>
+    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  </head>
+  <body>
+    <h1 align = "center" > Angus Wu </h1>
+
+      <h2 align = "center">
+        <button onclick = "location.href= 'Index.html'" type="button" name="Home">Home</button>
+        <button onclick = "location.href= 'classes.html'" type="button" name="Classes">Classes</button>
+        <button onclick = "location.href= 'myfavorite.html'" type = "button" name="My Favorite">My Favorite</button>
+        <button onclick = "location.href= 'my_mood.html'" type = "button" name="My Moods">My Moods</button>
+        <button onclick = "location.href= 'my_neighbors.html'" type= "button" name="My Neighbors">My Neigbors</button>
+        <button onclick = "location.href= 'MyPrograms.html'" type= "button" name="My Programs">My Programs</button>
+          <hr class="new1">
+      </h2>
+
+      <h3 align = "center"> About Me </h3>
+<div class= "row">
+  <div class= "column" align = "left">
+    <p style = "float: left"><img src="IMG_3320.JPG" height="400" width="400" class = "rotateimg90"></p>
+    <p align = "center">
+      My name is <b>Angus Wu</b>. I am a student at <b>Miami University</b>. I am currently a <b>Computer Science Major</b>. Some of my favorite things to do is <b>sleep</b> and do many <b>entertaining activities</b>. One such entertaining activity that I quite enjoy doing is ice skating. For me, ice skating gives me so much enjoyment because of how fast you can be on ice.
+    </p>
+  </div>
+  <div style = "clear: left;">
+  </div>
+</div>
+<hr class= "new1">
+        <h4 align = "center"><button onclick = "document.body.style.backgroundColor = 'purple'" type="button" class = "button" name="Change Background Color" >Change Background Color</button></h4>
+
+
+
+  </body>
+</html>
