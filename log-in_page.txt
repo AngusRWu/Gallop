@@ -7,7 +7,7 @@ input {text-align: center;}
 button {text-align: center;}
 </style>
 </head>
-<body>
+<body style=background-color:beige>
 
 <h2 style=font-family:verdana>Welcome to Gallop!</h2>
 <h4 style=font-family:verdana>Log in</h4>
