@@ -31,16 +31,6 @@
 		profile.email = document.getElementById("email").value;
 		document.write("Account Created!");
         }
-        
-        // Log-in function
-        // TODO: have it search a set of users for matching username
-        // and check if password matches
-        function login(username, password) {
-        	if(username == profile.un && password == profile.pw)
-            	return true;
-            else
-            	return false;
-        }
 	</script>
 </body>
 </html>
