@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h2 {text-align: center;}
+input {text-align: center;}
+button {text-align: center;}
+</style>
+</head>
+<body>
+
+<h2 style=font-family:verdana>Welcome to Gallop!</h2>
+<h4 style=font-family:verdana>Log in</h4>
+
+<input type="text" placeholder="Username" id="username"><br>
+<input type="text" placeholder="Password" id="password"><br>
+<button type="button" onclick="getInput()">Log In</button><br>
+<br>
+<div style=font-family:verdana>Don't have an account? </div>
+<a href="https://www.google.com/" style=font-family:verdana>Make one!</a>
+
+</body>
+</html>
