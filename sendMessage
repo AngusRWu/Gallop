@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+#textbox {
+	display: none;
+}
+#button {
+	display: none;
+}
+#destination {
+	display: inline;
+}
+#desButton {
+	display: inline;
+}
+#prompt {
+	display: block;
+}
+</style>
+
+<ul id="messages"></ul>
+<div id="prompt" style=font-family:verdana>Who do you want to message?</div>
+<br>
+<input id="destination" type="text" placeholder="User">
+<button id="destButton" onclick="checkDestination()">Chat</button>
+
+<input id="textbox" type="text" placeholder="Message">
+<button id="button" onclick="sendMessage()">Send</button>
+
+<script>
+	// Variable Declarations
+	var messages = document.getElementById("messages");
+    var textbox = document.getElementById("textbox");
+    var button = document.getElementById("button");
+    var destination = document.getElementById("destination");
+    var destButton = document.getElementById("destButton");
+    var prompt = document.getElementById("prompt");
+    
+    // Check if the profile the user wants to mention is real
+    function checkDestination() {
+    	var receiver = destination.value;
+        if(receiver == "")
+        	window.alert("Specify a user to message.");
+        else{	//TODO: CHECK IF DESTINATION PROFILE LEGITIMATE
+        	destination.style.display = "none";
+            destButton.style.display = "none";
+            prompt.style.display = "none";
+            textbox.style.display = "inline";
+            button.style.display = "inline";
+        }
+    }
+
+	// Send the message
+	function sendMessage() {
+        var msg = document.createElement("div");
+        msg.innerHTML = textbox.value;
+        messages.appendChild(msg);
+        textbox.value = "";
+	}
+</script>
+
+</body>
+</html>
