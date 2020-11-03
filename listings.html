@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Show Listings</title>
+        <style>
+            table {
+            float:left;
+            margin:10px;
+            border-spacing:10px;
+            border-collapse:collapse;
+            }
+            th, td {
+                border: 1px solid;
+                border-collapse:collapse;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body onload="buildShowTable()">
+        <button onclick = window.history.back();> Back</button>
+        <h1>Upcoming Information</h1>
+        
+        <form>
+            <h2>Show Registration</h2>
+            <input type = "text" placeholder = "School ID" id = "rSchoolId">
+            <input type = "text" placeholder = "Show Name"id = "rShowName">
+            <input type = "text" placeholder = "Location "id = "rLocation">
+            <input type = "text" placeholder = "Date "id = "rDate">
+            <button type ="button" onclick="addShow()">Register Show</button>
+        </form>
+
+        <h2>Show Listings</h2>
+        <table width = 60% id="table">
+            <tr>
+                <th>Show</th>
+                <th>Host</th>
+                <th>Location</th>
+                <th>Date</th>
+            </tr>
+        </table>
+
+        
+        <script src = "ShowListings.js"></script>
+    </body>
+</html>
