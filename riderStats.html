@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1894.6">
+  <style type="text/css">
+	body{
+ 		width:90%;
+  		margin:0 auto;
+	}
+
+	table {
+		float:left;
+		margin:10px;
+		border-spacing:10px;
+	}
+
+	th, td {
+		border: 1px solid;
+		border-collapse:collapse;
+	}
+
+  </style>
+</head>
+<body>
+	<h1> Rider Statistics </h1>
+	<p>Displays Riders</p>
+
+<!---- Displays button that is shifted to the right side of the page ---->
+<button type="button" style="float: right;" onclick="addRider()">Add Rider</button>
+
+<br>
+
+<!---- This the table where we will input information ---->
+<table height = 109 width=14%>
+  <tr>
+    <th>Picture</th>
+  </tr>
+</table>
+
+<table>
+ <tr>
+    <th id="name">Name</th>
+ </tr>
+ 	
+ <tr>
+ 	<th id="school">School</th>
+ </tr>
+ 
+ <tr>
+ 	<th id="division">Division(s)</th>
+ </tr>
+</table>
+
+<table height = 109 width = 66%>
+  <tr>
+    <th id="description">General description or fun facts</th>
+  </tr>
+</table>
+
+<!---- The method to add information to the table ---->
+<script>
+function addRider() {
+	var name = prompt("Enter rider name");
+    	var school = prompt("Enter school name");
+    	var division = prompt("Enter divison");
+    	var descriptions = prompt("Enter description about rider");
+    	document.getElementById("name").innerHTML = name;
+    	document.getElementById("school").innerHTML = school;
+    	document.getElementById("division").innerHTML = division;
+    	document.getElementById("description").innerHTML = descriptions;
+}
+</script>
+</body>
+</html>
