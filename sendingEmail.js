@@ -1,26 +1,34 @@
-var nodemailer = require('nodemailer');
-var http = require('http');
-var events = require('events');
 var express = require("express");
+var nodemailer = require('nodemailer');
+ 
+//use the application off of express.
+var app = express();
 
-var eventEmitter = new events.EventEmitter();
+//define the route for "/"
+app.get("/", function (request, response){
+    response.sendFile(__dirname+"/sendingEmail.html");
+});
 
-http.createServer(function(req, res) {
-    
-    var eventHandler = function() {
+app.get("/getemail", function (request, response){
+    var sender = request.query.sender;
+    var receiver = request.query.receiver;
+    var password = request.query.password;
+    var message = request.query.message;
+
+    if (sender != "" && receiver != "" && password != "" && message != "") {
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'efrainricardoperez@gmail.com',
-                pass: '02570257ep'
+                user: sender,
+                pass: password
             }
         });
         
         var mailOptions = {
-            from: 'efrainricardoperez@gmail.com',
-            to: 'sharkfin42@gmail.com',
+            from: sender,
+            to: receiver,
             subject: 'You received a message from Gallop!',
-            text: 'That was easy!'
+            text: message
         }
         
         transporter.sendMail(mailOptions, function(error, info){
@@ -30,22 +38,12 @@ http.createServer(function(req, res) {
                 console.log('Email sent: ' + info.response);
             }
         });
-    };
 
-    eventEmitter.on('send', eventHandler);
-
-    res.writeHead(200, {'Content-Type':'text/html'});
-
-    res.write('<input type="text" id="sender" placeholder="Your email"><br>');
-    res.write('<input type="password" id="pasword" placeholder="Your email password"><br>');
-    res.write('<input type="text" id="receiver" placeholder="Receiver\'s email"><br>');
-    res.write('<button id="button">Send</button><br>');
-
-    function sendEmail() {
-        window.alert("please senor");
+        response.send("Message sent!");
+    } else {
+        response.send("Please provide all information.");
     }
+});
 
-    eventEmitter.emit('send');
-
-    res.end();
-}).listen(4000);
+//start the server
+app.listen(8080);
