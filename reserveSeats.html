@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html style="background-color:BlanchedAlmond;">
+<body>
+<style>
+#holder {
+	text-align: center;
+}
+#reserveButton {
+	display: inline;
+    background-color: DimGray;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 20px;
+    cursor: pointer;
+}
+#info {
+	text-align: center;
+	display: none;
+    font-size: 10px;
+}
+</style>
+
+<div id="holder">
+<h1 style=font-family:verdana>Reserve a Seat</h1>
+<div id="show" style=font-family:verdana></div>
+<p id="total" style=font-family:verdana>Total Seats: </p>
+<p id="available" style=font-family:verdana>Available Seats: </p>
+<button id="reserveButton" onclick="reserveSeat()">Reserve Seat</button>
+<div id="success" style=font-family:verdana></div>
+<div id="info" style=font-family:verdana>Provide your registration code upon arrival.</div>
+</div>
+
+<script>
+var show = {schoolId: "Miami University",
+        	showName: "Miami Gallop",
+        	location: "Oxford, OH",
+        	date: "11/27/2020",
+            totalSeats: "14",
+            availableSeats: "5"}
+
+var showInfo = show.showName + " @ " + show.location;
+
+document.getElementById("show").innerHTML += showInfo;
+document.getElementById("total").innerHTML += show.totalSeats;
+document.getElementById("available").innerHTML += show.availableSeats;
+
+function reserveSeat() {
+    var available = parseInt(show.availableSeats) - 1;
+    show.availableSeats = available.toString();
+	document.getElementById("available").innerHTML = "Available Seats: " + show.availableSeats;
+    document.getElementById("reserveButton").style.display = "none";
+    
+    // generate registration code
+    var registrationCode = show.availableSeats + show.totalSeats + show.showName.charAt(0) + show.showName.charAt(show.showName.length-1);
+    registrationCode = registrationCode.toUpperCase();
+    document.getElementById("success").innerHTML = "Registration Code: " + registrationCode;
+    document.getElementById("info").style.display = "inline";
+}
+
+</script>
+</body>
+</html>
