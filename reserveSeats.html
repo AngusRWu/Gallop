@@ -32,6 +32,7 @@
 </div>
 
 <script>
+// TODO: pass in a show instead
 var show = {schoolId: "Miami University",
         	showName: "Miami Gallop",
         	location: "Oxford, OH",
@@ -46,6 +47,7 @@ document.getElementById("total").innerHTML += show.totalSeats;
 document.getElementById("available").innerHTML += show.availableSeats;
 
 function reserveSeat() {
+	// TODO: ensure the change in data is recorded in the data structure
     var available = parseInt(show.availableSeats) - 1;
     show.availableSeats = available.toString();
 	document.getElementById("available").innerHTML = "Available Seats: " + show.availableSeats;
