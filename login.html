@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html style="background-color:BlanchedAlmond;">
+<body>
+<style>
+#holder {
+	text-align: center;
+}
+#loginButton {
+	display: inline;
+    background-color: DimGray;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 20px;
+    margin: 12px 2px;
+    cursor: pointer;
+}
+#username {
+	display: inline-block;
+    width:40%;
+    padding: 12px 20px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#password {
+	display: inline-block;
+    width:40%;
+    padding: 12px 20px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+</style>
+
+<div id="holder">
+	<h2 style=font-family:verdana>Welcome to Gallop!</h2>
+	<h4 style=font-family:verdana id="instructions">Log in</h4>
+    
+    <input type="text" placeholder="Username" id="username"><br>
+    <input type="password" placeholder="Password" id="password"><br>
+    <button id="loginButton" onclick="login()">Log In</button><br>
+    <br>
+    <div style=font-family:verdana>Dont't have an account?</div>
+</div>
+	<script>        
+        // Retrieve input
+        function login() {
+        	var username = document.getElementById("username").value;
+        	var password = document.getElementById("password").value;
+            
+            // TODO: Check if profile exists
+            //       YES --> navigate to home page
+            //       NO --> alert
+            if(password == "" || username == "") {
+            	window.alert("Please input a username and password.");
+            }
+            else {
+            	document.write("Navigate to home page");
+            }
+        }
+	</script>
+</body>
+</html>
