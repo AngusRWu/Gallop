@@ -1,7 +1,57 @@
-<html>
-    <head>
-    </head>
+<html style="background-color:BlanchedAlmond;">
+<style>
+#holder {
+	text-align: center;
+}
+#sendButton {
+	display: inline;
+    background-color: DimGray;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    font-size: 20px;
+    margin: 12px 2px;
+    cursor: pointer;
+}
+#sender {
+	display: inline-block;
+    width:40%;
+    padding: 12px 20px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#password {
+	display: inline-block;
+    width:40%;
+    padding: 12px 20px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#receiver {
+	display: inline-block;
+    width:40%;
+    padding: 12px 20px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#message {
+	display: inline-block;
+    width:80%;
+    padding: 12px 20px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+</style>
 <body>
+<div id="holder">
     <h1 style=font-family:verdana>Compose a Message</h1>
 
     <form method='GET' action="/getemail">
@@ -10,8 +60,10 @@
         <input type="text" id="receiver" name="receiver" placeholder="User email"></input><br>
         <textarea type="textarea" rows="10" cols="60" id="message" name="message"></textarea><br>
         <div class="submit-name">
-            <input type="submit" value="Send" />
+            <input id="sendButton" type="submit" value="Send" />
         </div>
     </form>
+    
+</div>
 </body>
 </html>
