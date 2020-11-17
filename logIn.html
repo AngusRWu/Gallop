@@ -4,7 +4,7 @@
 #holder {
 	text-align: center;
 }
-#submitButton {
+#loginButton {
 	display: inline;
     background-color: DimGray;
     border: none;
@@ -23,24 +23,6 @@
     border-radius: 4px;
     box-sizing: border-box;
 }
-#firstName {
-	display: inline-block;
-    width:40%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-#lastName {
-	display: inline-block;
-    width:40%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
 #password {
 	display: inline-block;
     width:40%;
@@ -50,20 +32,7 @@
     border-radius: 4px;
     box-sizing: border-box;
 }
-#email {
-	display: inline-block;
-    width:40%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-#endMsg {
-	display: none;
-    font-family:verdana;
-}
-	        .navbar {
+	           .navbar {
   overflow: hidden;
   background-color: #ed913b;
 }
@@ -121,7 +90,6 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
 </style>
 <body>
 	<div style="text-align: center">
@@ -164,48 +132,31 @@
 		</div>
 	</div>
 <div id="holder">
-	<h2 style=font-family:verdana>Create an Account</h2>
-
-	<p style=font-family:verdana id="instructions">Enter the following information:</p>
+	<h2 style=font-family:verdana>Welcome to Gallop!</h2>
+	<h4 style=font-family:verdana id="instructions">Log in</h4>
     
     <input type="text" placeholder="Username" id="username"><br>
-    <input type="text" placeholder="First Name" id="firstName"><br>
-    <input type="text" placeholder="Last Name" id="lastName"><br>
     <input type="password" placeholder="Password" id="password"><br>
-    <input type="text" placeholder="Email" id="email"><br>
-    <button id="submitButton" onclick="getInput()">Submit</button>
-    <div id="endMsg" >Account Created!</div>
+    <button id="loginButton" onclick="login()">Log In</button><br>
+    <br>
+    <div style=font-family:verdana>Dont't have an account?</div>
+    <a href="createAccount.html">Create Account</a>
 </div>
-	<script>
-		// Create the profile object
-		var profile = {
-  			pn : undefined,
-  			un : undefined,
-  			pw : undefined,
-			email : undefined
-		};
-        
+	<script>        
         // Retrieve input
-        function getInput() {
-        	profile.pn = document.getElementById("firstName").value +
-        	" " + document.getElementById("lastName").value;
-        	profile.un = document.getElementById("username").value;
-        	profile.pw = document.getElementById("password").value;
-		profile.email = document.getElementById("email").value;
-		
-        // Check if profile already created
-        
-        // Add profile to data structure
-        
-        // Clear Page
-        document.getElementById("instructions").style.display = "none";
-        document.getElementById("username").style.display = "none";
-        document.getElementById("firstName").style.display = "none";
-        document.getElementById("lastName").style.display = "none";
-        document.getElementById("password").style.display = "none";
-        document.getElementById("email").style.display = "none";
-        document.getElementById("submitButton").style.display = "none";
-        document.getElementById("endMsg").style.display = "inline";
+        function login() {
+        	var username = document.getElementById("username").value;
+        	var password = document.getElementById("password").value;
+            
+            // TODO: Check if profile exists
+            //       YES --> navigate to home page
+            //       NO --> alert
+            if(password == "" || username == "") {
+            	window.alert("Please input a username and password.");
+            }
+            else {
+            	document.write("Navigate to home page");
+            }
         }
 	</script>
 </body>

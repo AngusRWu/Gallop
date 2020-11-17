@@ -1,53 +1,69 @@
-<html style="background-color:BlanchedAlmond;">
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-#holder {
-	text-align: center;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
 }
-#sendButton {
-	display: inline;
-    background-color: DimGray;
-    border: none;
-    color: white;
-    padding: 10px 24px;
-    font-size: 20px;
-    margin: 12px 2px;
-    cursor: pointer;
+
+* {
+  box-sizing: border-box;
 }
-#sender {
-	display: inline-block;
-    width:40%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
 }
-#password {
-	display: inline-block;
-    width:40%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
 }
-#receiver {
-	display: inline-block;
-    width:40%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
 }
-#message {
-	display: inline-block;
-    width:80%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
 }
         .navbar {
   overflow: hidden;
@@ -107,8 +123,8 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
 </style>
+</head>
 <body>
 <div style="text-align: center">
                 <h1 style="color:white"> Gallop </h1>
@@ -148,19 +164,40 @@
                                 </div>
                         </div>
 		</div>
-<div id="holder">
-    <h1 style=font-family:verdana>Compose a Message</h1>
-
-    <form method='GET' action="/getemail">
-        <input type="text" id="sender" name="sender" placeholder="Your email"/></input><br>
-        <input type="password" id="password" name="password" placeholder="Your password"></input><br>
-        <input type="text" id="receiver" name="receiver" placeholder="User email"></input><br>
-        <textarea type="textarea" rows="10" cols="60" id="message" name="message"></textarea><br>
-        <div class="submit-name">
-            <input id="sendButton" type="submit" value="Send" />
-        </div>
-    </form>
-    
 </div>
+<form action="/action_page.php">
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to register for an upcoming show.</p>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+    <label for="rName"><b>Rider Name</b></label>
+    <input type="text" placeholder="Enter Rider Name" name="rName" id="rName" required>
+    <label for="hName"><b>Horse Name</b></label>
+    <input type="text" placeholder="Enter Horse Name" name="hName" id="hName" required>
+    <label for="school"><b>School Name</b></label>
+    <input type="text" placeholder="Enter School Name" name="school" id="school" required>
+    <label for="shows"><b> Shows </b></label></br>
+    <input type="radio" name="shows" value="Chagrin Valley Farms" id=myRadio">Chagrin Valley Farms USEF Regional Nov B Show <br>
+    <input type="radio" name="shows" value="Hathaway Hill" id=myRadio"> Hathaway Hill Fall Take One Horse Show <br>
+    <input type="radio" name="shows" value="The Pines" id=myRadio"> The Pines <br>
+    <input type="radio" name="shows" value="Next Venture Farm" id=myRadio"> Next Venture Farm Show Series<br>
+    <hr>
+    <p>By registering for a show you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
+  
+</form>
+
 </body>
 </html>
+

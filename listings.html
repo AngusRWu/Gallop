@@ -1,55 +1,10 @@
-<html style="background-color:BlanchedAlmond;">
+<!DOCTYPE html>
+<html>
 <style>
-#holder {
-	text-align: center;
+body{
+background-image: url('flowerBackground.webp');
 }
-#sendButton {
-	display: inline;
-    background-color: DimGray;
-    border: none;
-    color: white;
-    padding: 10px 24px;
-    font-size: 20px;
-    margin: 12px 2px;
-    cursor: pointer;
-}
-#sender {
-	display: inline-block;
-    width:40%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-#password {
-	display: inline-block;
-    width:40%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-#receiver {
-	display: inline-block;
-    width:40%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-#message {
-	display: inline-block;
-    width:80%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-        .navbar {
+.navbar {
   overflow: hidden;
   background-color: #ed913b;
 }
@@ -108,9 +63,27 @@
   display: block;
 }
 
+
 </style>
-<body>
-<div style="text-align: center">
+    <head>
+        <title>Show Listings</title>
+        <style>
+            table {
+		background-color: white;
+            float:left;
+            margin:10px;
+            border-spacing:10px;
+            border-collapse:collapse;
+            }
+            th, td {
+                border: 1px solid;
+                border-collapse:collapse;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body onload="buildShowTable()">
+       <div style="text-align: center">
                 <h1 style="color:white"> Gallop </h1>
                 <div class="navbar">
                         <a href="homePage.html">Home</a>
@@ -148,19 +121,28 @@
                                 </div>
                         </div>
 		</div>
-<div id="holder">
-    <h1 style=font-family:verdana>Compose a Message</h1>
+	    <h1>Upcoming Show Information</h1>
+        
+        <form>
+            <h2>Show Registration</h2>
+            <input type = "text" placeholder = "School ID" id = "rSchoolId">
+            <input type = "text" placeholder = "Show Name"id = "rShowName">
+            <input type = "text" placeholder = "Location "id = "rLocation">
+            <input type = "text" placeholder = "Date "id = "rDate">
+            <button type ="button" onclick="addShow()">Register Show</button>
+        </form>
 
-    <form method='GET' action="/getemail">
-        <input type="text" id="sender" name="sender" placeholder="Your email"/></input><br>
-        <input type="password" id="password" name="password" placeholder="Your password"></input><br>
-        <input type="text" id="receiver" name="receiver" placeholder="User email"></input><br>
-        <textarea type="textarea" rows="10" cols="60" id="message" name="message"></textarea><br>
-        <div class="submit-name">
-            <input id="sendButton" type="submit" value="Send" />
-        </div>
-    </form>
-    
-</div>
-</body>
+        <h2>Show Listings</h2>
+        <table width = 60% id="table">
+            <tr>
+                <th>Show</th>
+                <th>Host</th>
+                <th>Location</th>
+                <th>Date</th>
+            </tr>
+        </table>
+
+        
+        <script src = "ShowListings.js"></script>
+    </body>
 </html>

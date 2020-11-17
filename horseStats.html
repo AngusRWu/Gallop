@@ -1,55 +1,27 @@
-<html style="background-color:BlanchedAlmond;">
+<!DOCTYPE html>
+<html>
+<head>
+<title>Horse Stats</title>
 <style>
-#holder {
-	text-align: center;
+body{
+  width:90%;
+  margin:0 auto;
+  background-image: url('background.jpg');
 }
-#sendButton {
-	display: inline;
-    background-color: DimGray;
-    border: none;
-    color: white;
-    padding: 10px 24px;
-    font-size: 20px;
-    margin: 12px 2px;
-    cursor: pointer;
+
+table {
+float:left;
+margin:10px;
+border-spacing:10px;
+border-collapse:collapse;
 }
-#sender {
-	display: inline-block;
-    width:40%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+th, td {
+border: 1px solid;
+border-collapse:collapse;
 }
-#password {
-	display: inline-block;
-    width:40%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-#receiver {
-	display: inline-block;
-    width:40%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-#message {
-	display: inline-block;
-    width:80%;
-    padding: 12px 20px;
-    margin: 6px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-        .navbar {
+
+		 .navbar {
   overflow: hidden;
   background-color: #ed913b;
 }
@@ -107,8 +79,8 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
 </style>
+</head>
 <body>
 <div style="text-align: center">
                 <h1 style="color:white"> Gallop </h1>
@@ -148,19 +120,50 @@
                                 </div>
                         </div>
 		</div>
-<div id="holder">
-    <h1 style=font-family:verdana>Compose a Message</h1>
+<h1>Horse Stats</h1>
+<p>Displays Horses.</p>
+<input type="text" placeholder = Name name="name" id="name"><br>
+<input type="text" placeholder = School name="school" id="school"><br>
+<input type="text" placeholder = Division name="division" id="division"><br>
+<input type="text" placeholder = Description name="description" id="description" /><br /><br />
+<!---- Displays button that is shifted to the right side of the page ---->
+<button type="button" style="float: auto;" onclick="addHorse()">Add Horse</button>
 
-    <form method='GET' action="/getemail">
-        <input type="text" id="sender" name="sender" placeholder="Your email"/></input><br>
-        <input type="password" id="password" name="password" placeholder="Your password"></input><br>
-        <input type="text" id="receiver" name="receiver" placeholder="User email"></input><br>
-        <textarea type="textarea" rows="10" cols="60" id="message" name="message"></textarea><br>
-        <div class="submit-name">
-            <input id="sendButton" type="submit" value="Send" />
-        </div>
-    </form>
+<table width = 100% id="table">
+    <tr>
+        <th>Name</th>
+        <th>School</th>
+        <th>Division</th>
+        <th>Description</th>
+    </tr>
+</table>
+
+
+<script>
+function addHorse() {
+	var table = document.getElementById("table");
     
-</div>
+    var row= document.createElement("tr");
+   
+    var td1 = document.createElement("td");
+    var td2 = document.createElement("td");
+    var td3 = document.createElement("td");   
+    var td3 = document.createElement("td");
+    var td4 = document.createElement("td"); 
+
+    td1.innerHTML = document.getElementById("name").value;
+    td2.innerHTML  = document.getElementById("school").value;
+    td3.innerHTML  = document.getElementById("division").value;
+    td4.innerHTML  = document.getElementById("description").value;
+
+    row.appendChild(td1);
+    row.appendChild(td2);
+    row.appendChild(td3);
+    row.appendChild(td4);
+
+    table.children[0].appendChild(row);
+}
+</script>
+
 </body>
 </html>
