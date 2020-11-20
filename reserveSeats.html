@@ -3,8 +3,40 @@
 <style>
 #holder {
 	text-align: center;
+    display:none;
+}
+#chooseShow {
+	text-align: center;
+    display:inline;
+}
+#showName {
+	display: inline-block;
+    width:40%;
+    padding: 12px 20px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#showLocation {
+	display: inline-block;
+    width:40%;
+    padding: 12px 20px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 #reserveButton {
+	display: inline;
+    background-color: DimGray;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 20px;
+    cursor: pointer;
+}
+#chooseButton {
 	display: inline;
     background-color: DimGray;
     border: none;
@@ -81,7 +113,7 @@
 <body>
 
 <div style="text-align: center">
-                <h1 style="color:white"> Gallop </h1>
+                <h1 style="color:black"> Gallop </h1>
                 <div class="navbar">
                         <a href="homePage.html">Home</a>
                         <div class="dropdown">
@@ -118,33 +150,55 @@
                                 </div>
                         </div>
 		</div>
+        
+<div id="chooseShow">
+  <h1 style=font-family:verdana>Choose a Show</h1>
+  <input type="text" placeholder="Show Name" id="showName"><br>
+  <input type="text" placeholder="Show Location" id="showLocation"><br>
+  <button id="chooseButton" onclick="nextStep()">Choose Show</button>
+</div>
+        
 <div id="holder">
-<h1 style=font-family:verdana>Reserve a Seat</h1>
-<div id="show" style=font-family:verdana></div>
-<p id="total" style=font-family:verdana>Total Seats: </p>
-<p id="available" style=font-family:verdana>Available Seats: </p>
-<button id="reserveButton" onclick="reserveSeat()">Reserve Seat</button>
-<div id="success" style=font-family:verdana></div>
-<div id="info" style=font-family:verdana>Provide your registration code upon arrival.</div>
+  <h1 style=font-family:verdana>Reserve a Seat</h1>
+  <div id="show" style=font-family:verdana></div>
+  <p id="total" style=font-family:verdana>Total Seats: </p>
+  <p id="available" style=font-family:verdana>Available Seats: </p>
+  <button id="reserveButton" onclick="reserveSeat()">Reserve Seat</button>
+  <div id="success" style=font-family:verdana></div>
+  <div id="info" style=font-family:verdana>Provide your registration code upon arrival.</div>
 </div>
 
 <script>
-// TODO: pass in a show instead
+
 var show = {schoolId: "Miami University",
-        	showName: "Miami Gallop",
-        	location: "Oxford, OH",
+        	showName: undefined,
+        	location: undefined,
         	date: "11/27/2020",
             totalSeats: "14",
-            availableSeats: "5"}
-
-var showInfo = show.showName + " @ " + show.location;
-
-document.getElementById("show").innerHTML += showInfo;
-document.getElementById("total").innerHTML += show.totalSeats;
-document.getElementById("available").innerHTML += show.availableSeats;
+            availableSeats: "6"}
+            
+function nextStep() {
+    // set the name and location to the show
+    show.showName = document.getElementById("showName").value;
+    show.location = document.getElementById("showLocation").value;
+    
+    var showInfo = show.showName + " @ " + show.location;
+    
+    document.getElementById("show").innerHTML += showInfo;
+	document.getElementById("total").innerHTML += show.totalSeats;
+	document.getElementById("available").innerHTML += show.availableSeats;
+    
+    // display the show's information
+    document.getElementById("chooseShow").style.display = "none";
+    document.getElementById("holder").style.display = "inline";
+}
 
 function reserveSeat() {
-	// TODO: ensure the change in data is recorded in the data structure
+
+	if(show.availableSeats == "0") {
+    	document.write("No Available Seats For This Show!");
+    }
+
     var available = parseInt(show.availableSeats) - 1;
     show.availableSeats = available.toString();
 	document.getElementById("available").innerHTML = "Available Seats: " + show.availableSeats;
