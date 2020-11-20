@@ -3,7 +3,7 @@
 
 <head>
   <title>Upload Pictures</title>
-  <style>
+  <style type="text/css">
     body{
       width:90%;
       margin:0 auto;
@@ -20,15 +20,117 @@
     border: 1px solid;
     border-collapse:collapse;
     }
+        body {
+        background-image: url('horse.jpg');
+        }
+        .navbar {
+  overflow: hidden;
+  background-color: #ed913b;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #804d1f;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
     
     </style>
 </head>
 
 <body style="background-color: blanchedalmond;">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<div style="text-align: center">
+                <h1 style="color:white"> Gallop </h1>
+                <div class="navbar">
+                        <a href="homePage.html">Home</a>
+                        <div class="dropdown">
+                                <button class="dropbtn">Statistics
+                                        <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                        <a href="riderStatistics.html">Rider Statistics</a>
+                                        <a href="horseStats.html">Horse Statistics</a>
+                                        <a href="schoolStats.html">School Statistics</a>
+                                </div>
+                        </div>
+
+                        <div class="dropdown">
+                                <button class="dropbtn">Shows
+                                        <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                        <a href="registerShows.html">Register for Show</a>
+                                        <a href="listings.html">Upcoming Shows</a>
+                                        <a href="reserveSeats.html">Reserve a Seat</a>
+                                </div>
+                        </div>
+                        <a href="http://172.22.168.94:8080/">Messages</a>
+                          <a href="faq.html">FAQ</a>
+                           <a href="photoUpload.html">Photo Album</a>
+                        <div class="dropdown">
+                                <button class="dropbtn">Profile
+                                        <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                        <a href="logIn.html">Log In</a>
+                                        <a href="createAccount.html">Create a Profile</a>
+                                        <a href="divPlacement.html">Division Placement</a>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
 </body>
-<h1 align = "center">Photo Section Upload</h1>
-<p align = "center">Pick and choose the photo you want to upload <br><br><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)"></p>
+<h1 align = "center" style="color:white;">Photo Section Upload</h1>
+<p align = "center" style="color:white;">Pick and choose the photo you want to upload <br><br><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)"></p>
 <p>
     <table width = 100% id="table">
         <tr></tr>
