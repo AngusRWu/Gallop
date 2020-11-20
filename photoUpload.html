@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Upload Pictures</title>
+  <style>
+    body{
+      width:90%;
+      margin:0 auto;
+    }
+    
+    table {
+    float:left;
+    margin:10px;
+    border-spacing:10px;
+    border-collapse:collapse;
+    }
+    
+    th, td {
+    border: 1px solid;
+    border-collapse:collapse;
+    }
+    
+    </style>
+</head>
+
+<body style="background-color: blanchedalmond;">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</body>
+<h1 align = "center">Photo Section Upload</h1>
+<p align = "center">Pick and choose the photo you want to upload <br><br><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)"></p>
+<p>
+    <table width = 100% id="table">
+        <tr></tr>
+    </table>    
+</p>
+
+<script>
+var loadFile = function(event) {
+
+    var table = document.getElementById("table");
+    
+    if (table.rows[0].cells.length < 4) {
+        var td1 = document.createElement("td");
+        var image = document.createElement("img");
+        image.style.width = "50%";
+        image.style.height = "50%";
+        image.src = URL.createObjectURL(event.target.files[0]);
+        table.rows[0].appendChild(image);
+    }
+    else {
+        var row = document.createElement("tr"); 
+        var td1 = document.createElement("td");
+        var image = document.createElement("img");
+        image.style.width = "50%";
+        image.style.height = "50%";
+        image.src = URL.createObjectURL(event.target.files[0]);
+        table.rows[0].appendChild(image);
+        table.children[0].appendChild(row);
+    }
+
+    // var row = document.createElement("tr");
+    // var td1 = document.createElement("td");
+    // var image = document.createElement("img");
+
+
+    
+    // image.src = URL.createObjectURL(event.target.files[0]);
+    // td1.appendChild(image);
+    
+    
+
+    // var td2 = document.createElement("td");
+    // var image1 = document.createElement("img");
+    // image1.src = URL.createObjectURL(event.target.files[0]);
+    // td2.appendChild(image1);
+    // row.appendChild(td1);
+    // row.appendChild(td2);
+    // table.children[0].appendChild(row);
+
+};
+</script>
+</html>
