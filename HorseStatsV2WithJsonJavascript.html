@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Horse Stats</title>
+<style>
+body{
+  width:90%;
+  margin:0 auto;
+}
+
+table {
+float:left;
+margin:10px;
+border-spacing:10px;
+border-collapse:collapse;
+}
+
+th, td {
+border: 1px solid;
+border-collapse:collapse;
+}
+
+</style>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>Horse Stats</h1>
+<p>Displays Horses.</p>
+
+<p1 id ="demo"></p1>
+
+<br>
+<div>
+<input type="text" placeholder = Name name="name" id="name"><br>
+<input type="text" placeholder = School name="school" id="school"><br>
+<input type="text" placeholder = Division name="division" id="division"><br>
+<input type="text" placeholder = Description name="description" id="description" /><br /><br />
+</div>
+
+<!---- Displays button that is shifted to the right side of the page ---->
+<button type="button" style="float: auto;" onclick="addHorse()">Add Horse</button>
+
+<button type="button" style="float: auto;" onclick="addData()">Save Info</button>
+
+<table width = 100% id="table">
+    <tr>
+        <th>Name</th>
+        <th>School</th>
+        <th>Division</th>
+        <th>Description</th>
+    </tr>
+</table>
+
+<script>
+
+var obj = {
+    name: "Henry",
+    school: "Ohio State",
+    division: "D3",
+    description: "I hope this works"
+  }
+
+var array = new Array;
+
+fetch("file.json")
+.then(results => results.json())
+.then(function (data) {
+  var table = document.getElementById("table");
+  
+  array = data;
+
+  array.push(obj);
+
+  for (var i = 0; i < data.length; i++) {
+    var row = document.createElement("tr");
+    var td1 = document.createElement("td");
+    var td2 = document.createElement("td");
+    var td3 = document.createElement("td");
+    var td4 = document.createElement("td");
+    // Data is now an array so make sure to go into the array to access it
+    td1.innerHTML = data[i].name;
+    td2.innerHTML = data[i].school;
+    td3.innerHTML = data[i].division;
+    td4.innerHTML = data[i].description;
+    row.appendChild(td1);
+    row.appendChild(td2);
+    row.appendChild(td3);
+    row.appendChild(td4);
+    table.children[0].appendChild(row);
+    console.log(data);
+  }
+})
+.catch(error => console.log("ERROR"));
+
+fetch("file.json", {
+method: "POST",
+headers: {
+  "Content-Type": "application/json"
+},
+body: JSON.stringify(array)
+})
+.then(results => results.json())
+.then(function (data) {
+  console.log(data);
+})
+.catch(error => console.log("ERROR"));
+
+</script>
+
+
+
+</body>
+</html>
+
